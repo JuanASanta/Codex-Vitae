@@ -1,5 +1,5 @@
 from django.db import models
-from habits.models import Habit
+from ..habits.models import Habit
 
 class HabitCompletion(models.Model):
     habit = models.ForeignKey(Habit, on_delete=models.CASCADE)
