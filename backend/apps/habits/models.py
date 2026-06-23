@@ -10,5 +10,11 @@ class Habit(models.Model):
     active = models.BooleanField(default=True)
     xp = models.IntegerField(default=10)
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["user", "name"], name="unique_habit_in_one_user")
+        ]
+
     def __str__(self):
         return self.name
+    
